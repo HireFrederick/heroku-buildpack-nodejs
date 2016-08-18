@@ -20,6 +20,7 @@ install_node_modules() {
     fi
     echo "daniel rox"
     cat $build_dir/.npmrc
+    npm config list
     npm install --unsafe-perm --userconfig $build_dir/.npmrc 2>&1
   else
     echo "Skipping (no package.json)"
