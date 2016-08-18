@@ -21,7 +21,7 @@ install_node_modules() {
     echo "daniel rox"
     cat $build_dir/.npmrc
     npm config list
-    npm install --unsafe-perm --userconfig $build_dir/.npmrc 2>&1
+    npm install
   else
     echo "Skipping (no package.json)"
   fi
@@ -40,7 +40,6 @@ rebuild_node_modules() {
       echo "Installing any new modules (package.json)"
     fi
     echo "daniel rox 2"
-    cat $build_dir/.npmrc
     npm install --unsafe-perm --userconfig $build_dir/.npmrc 2>&1
   else
     echo "Skipping (no package.json)"
