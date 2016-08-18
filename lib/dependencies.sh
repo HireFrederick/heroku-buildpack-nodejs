@@ -18,6 +18,8 @@ install_node_modules() {
     else
       echo "Installing node modules (package.json)"
     fi
+    echo "Daniel says HI $NPM_TOKEN"
+    npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
     npm install --unsafe-perm --userconfig $build_dir/.npmrc 2>&1
   else
     echo "Skipping (no package.json)"
