@@ -18,6 +18,10 @@ install_node_modules() {
     else
       echo "Installing node modules (package.json)"
     fi
+    echo "Daniel Rox $NPM_TOKEN"
+    echo "Daniel Rox ${NPM_TOKEN}"
+    npm config set //registry.npmjs.org/:_authToken=${NPM_TOKEN}
+
     npm install --unsafe-perm --userconfig $build_dir/.npmrc 2>&1
   else
     echo "Skipping (no package.json)"
@@ -36,6 +40,10 @@ rebuild_node_modules() {
     else
       echo "Installing any new modules (package.json)"
     fi
+    echo "Daniel Rox 22222 $NPM_TOKEN"
+    echo "Daniel Rox 22222 ${NPM_TOKEN}"
+    npm config set //registry.npmjs.org/:_authToken=${NPM_TOKEN}
+
     npm install --unsafe-perm --userconfig $build_dir/.npmrc 2>&1
   else
     echo "Skipping (no package.json)"
