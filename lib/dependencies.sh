@@ -11,16 +11,19 @@ install_node_modules() {
   local build_dir=${1:-}
 
   if [ -e $build_dir/package.json ]; then
-    cd $build_dir
+    cd $build_dir/client
 
     if [ -e $build_dir/npm-shrinkwrap.json ]; then
       echo "Installing node modules (package.json + shrinkwrap)"
     else
       echo "Installing node modules (package.json)"
     fi
-    echo "Daniel says HI $NPM_TOKEN"
     npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
+    echo "npm config set NPM_TOKEN"
+
     npm install --unsafe-perm --userconfig $build_dir/.npmrc 2>&1
+
+    cd ..
   else
     echo "Skipping (no package.json)"
   fi
